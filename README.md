@@ -1,40 +1,47 @@
 
-#GIT WORKFLOW
+#TO KNOW:
 
-Comme c'est un projet de groupe je vous propose d'adopter cette (link: https://www.youtube.com/watch?v=hKXxfHkOfnA) methodologie pour notre gestion de repo.
-
-L'idee est simple:
-Nous avons des branch publique et des branches privés. Chacun créer une branche privé surlequel il peut travailler. Une fois fini, il fait un 'pull request' et 'l'admin' proceder a la verification du code avant de 'merge' avec la branche publique.
-Sur un <i>petit<i> projet comme 42sh, nous pourrons nous contenter de 'master' comme branche publique.
-L'advantage etant que nous pouvons travailler en parallele sur le meme code sans compromettre la version production ie. 'master'
-
-Pour commencer, il suffit de:
-- creer une copie du projet:
-fork repo sur https://github.com/tongamite/42sh
-- clone la copie en local
-git clone https:github.com/<your_pseudo>/42sh.git
-- creer une branche prive avec lequel vous pouvez travailler
-git checkout -b <your_branch_name>
-this is shorhand for 
-git branch <name>
-git checkout <name>
-- coder coder coder
-- une fois fini:
-git add .
-git commit -m '<quick summary>'
-- se rendre sur la page du projet
-et faire un 'pull request'
-
-# TO KNOW:
-
-- libraries are in ./libs/ currently there is:
-	libgnl (for get_next_line)
-	libft (standard)
+###PROJECT STRUCTURE
+- libraries are in ./libs/. currently there is:  
+	libgnl (for get_next_line)  
+	libft (standard)  
 	libprt (for printf. !segfault if you pass string to %d)
 - Colors are defined in libprt.h
 - Errors messages are defined by Macros in project header (ie. shell.h) and start with 'E_<name>'
 
-___________
+###GIT WORKFLOW
+
+Comme c'est un projet de groupe, je vous propose d'adopter la méthodologie de ce [tuto](https://www.youtube.com/watch?v=hKXxfHkOfnA) sur youtube pour coordonner le development parallèle.
+
+######L'idee est simple:  
+Nous avons une branche publique et des branches privées.  
+Chacun travail sur sa branche privée et uniquement sur celui-ci.
+Une fois fini, nous faisons un __'pull request'__ et 'l'admin' procède a la validation du code avant de 'merge' avec la branche publique.  
+Sur un _petit projet_ comme 42sh, la branche publique est __'master'__ et il sera toujours libre de bugs.
+
+######Voici les étapes:
+1. Créer une copie du projet sur votre github.  
+`se rendre sur <https://github.com/tongamite/42sh> et 'fork'`
+2. Cloner la copie sur votre machine.  
+`git clone https:github.com/<your_pseudo>/42sh.git`
+3. Creer votre branche prive avec le nom de la fonctionnalité que vous implementez.    
+	git checkout -b <your_branch_name>
+C'est le raccourci pour:
+    git branch <name>
+    git checkout <name>
+4. coder coder coder
+5. une fois le travail fini:
+
+	git add .
+	git commit -m "<quick summary>"
+
+6. se rendre sur la page du [projet](https://github.com/tongamite/42sh) et faire un 'pull request'
+7. recommencer a partir de l'etape 3.
+
+Emmanuel.
+__________
+
+###Presentation: 
 
 J'ai decidé de pusher une base sur laquelle on peut tous travailler et inserer
 nos travaux petit a petit. J'ai pris mon sh1 pour base. Il est opérationnel.
@@ -55,8 +62,7 @@ base le code Guillaume).
 		- des variables environnementale
 		- des backslash
 		- etc...
-	- (PARSER) recuperer le tableau du lexer 
-				et le transformer en arbre binaire.
+	- (PARSER) recuperer le tableau du lexer et le transformer en arbre binaire.
 
 Pour la partie EXECUTION, j'ai une bonne base qui s'occupe de gerer 
 les multi-redirection, les multi-pipes etc... Je ne la push pas encore car c'est
@@ -67,41 +73,40 @@ je ne pense pas que ce sera compliqué
 implimented_function() s'occupe de verifier si la commande a executer est un 
 built-in ou pas. Retourne 1 si oui 0 sinon, -1 en cas d'erreur.
 
-####TO_DO pour avoir 10:
-	- reconstruire un shell propre :
-		- lexer
-		- parser
-		- execution (avec multi-pipes/redir etc..)
-//la partie exec ne devrais pas prendre bcp de temps.
-//La plupart du code est deja la.
+######TO_DO pour avoir 10:
+Reconstruire un shell propre avec:
+    - lexer
+	- parser
+	- execution (avec multi-pipes/redir etc..)  
+//la partie exec ne devrais pas prendre bcp de temps.  
+//La plupart du code est deja la.  
 	- mon cd ne gere pas le cd -
 	- echo
 	- heredoc
-	-
 
-TO_DO (LEXER) : 
-	- a partir d'un char * 
-	- gestion des " et ' et \
-	- gestion variables environnementale
-	- retourne tableau
+#####TO_DO (LEXER) : 
+- a partir d'un char * 
+- gestion des " et ' et \
+- gestion variables environnementale
+- retourne tableau
 
-TO_DO (PARSER) :
-	- a partir d'un char **
-	- organisation en arbre en fonction de 
-		- ;
-		- &&
-		- ||
-		- <
-		- >
-		- >>
-		- |
+#####TO_DO (PARSER) :
+- a partir d'un char **
+- organisation en arbre en fonction de 
+	- ;
+	- &&
+	- ||
+	- <
+	- \>
+	- \>>
+	- |
 
-TO_DO (EXECUTION) :
-	- adapter le code pour recevoir un arbre au lieu de char *
+#####TO_DO (EXECUTION) :
+- adapter le code pour recevoir un arbre au lieu de char *
 
-TO_DO (FT_SH3) : (a completer par GUILLAUME)
-	- deplacement mots par mots;
-	- auto_completion
+#####TO_DO (FT_SH3) : (a completer par GUILLAUME)
+- deplacement mots par mots;
+- auto_completion
 
 ____________
 
