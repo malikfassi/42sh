@@ -25,16 +25,12 @@ Sur un _petit projet_ comme 42sh, la branche publique est __'master'__ et il ser
 2. Cloner la copie sur votre machine.  
 `git clone https:github.com/<your_pseudo>/42sh.git`
 3. Creer votre branche prive avec le nom de la fonctionnalité que vous implementez.    
-	git checkout -b <your_branch_name>
-C'est le raccourci pour:
-    git branch <name>
-    git checkout <name>
-4. coder coder coder
-5. une fois le travail fini:
-
-	git add .
-	git commit -m "<quick summary>"
-
+`git checkout -b <your_branch_name>`  
+C'est le raccourci pour:  
+`git branch <name> && git checkout <name>`
+4. coder coder coder.
+5. une fois le travail fini:  
+`git add . && git commit -m "<quick summary>"`
 6. se rendre sur la page du [projet](https://github.com/tongamite/42sh) et faire un 'pull request'
 7. recommencer a partir de l'etape 3.
 
