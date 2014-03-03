@@ -1,5 +1,6 @@
 
-#TO KNOW:
+#42sh
+_______
 
 ###PROJECT STRUCTURE
 - libraries are in ./libs/. currently there is:  
